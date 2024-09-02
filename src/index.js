@@ -17,6 +17,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 // Middlewares
+app.use(express.urlencoded({extended: false}));
 
 // Global Variables
 

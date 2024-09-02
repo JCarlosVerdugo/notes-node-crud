@@ -6,12 +6,13 @@ const session = require('express-session');
 
 // Initialization
 const app = express();
+require('./database');
 
 // Settings
 app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
-app.engine('.hbs', engine());
+app.engine('.hbs', engine({extname: '.hbs'}));
 app.set('view engine', '.hbs');
+app.set('views', path.join(__dirname, 'views'));
 
 // Middlewares
 app.use(express.urlencoded({extended: false}));
